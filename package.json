@@ -1,6 +1,6 @@
 {
   "name": "promesify",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "a useful pattern to replace ugly callbacks with promises",
   "main": "promesify.js",
   "repository": {
