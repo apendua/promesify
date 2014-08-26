@@ -28,7 +28,7 @@ function promesify(config) {
   };
   constructor.prototype.expectError = function (callback) {
     return this.then(function () {
-      throw new Error('Expected an exception to be throw.')
+      throw new Error('Expected an exception to be thrown.')
     }, callback);
   };
   constructor.prototype.sleep = function (timeout) {
@@ -47,12 +47,17 @@ function promesify(config) {
       var args = Array.prototype.slice.call(arguments);
       return (new constructor(this._operand, Promise.all([ this._operand, this._promise ]))).then(function (all) {
         var original = all[0][method];
+
+        if (typeof original !== 'function') {
+          throw new Error('async method `' + method + '` does not exist');
+        }
+
         var callback = args[args.length-1];
         //---------------------------------------------
         return new Promise(function (resolve, reject) {
           if (typeof callback === 'function') {
             args[args.length-1] = function () {
-              try {
+              try { // we need to catch since this function is async
                 resolve(callback.apply(this, arguments));
               } catch (err) { reject(err) }
             }
