@@ -1,0 +1,32 @@
+{
+  "name": "promesify",
+  "version": "0.0.1",
+  "description": "a useful pattern to replace ugly callbacks with promises",
+  "main": "promesify.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/apendua/promesify"
+  },
+  "keywords": [
+    "promise",
+    "promises",
+    "async"
+  ],
+  "scripts": {
+    "test": "./test.js"
+  },
+  "author": "Tomasz Lenarcik (apendua@gmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/apendua/promesify/issues"
+  },
+  "homepage": "https://github.com/apendua/promesify",
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "mocha": "^1.20.1"
+  },
+  "dependencies": {
+    "colors": "^0.6.2",
+    "es6-promise": "^1.0.0"
+  }
+}
