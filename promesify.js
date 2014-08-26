@@ -15,6 +15,12 @@ function promesify(config) {
   }
   //------------------------------------------------------
   var constructor = function Promesify(operand, promise) {
+    if (typeof operand.then !== 'function') {
+      operand = Promise.resolve(operand);
+    }
+    if (promise && !(promise instanceof Promise)) {
+      throw new Error('promise can be undefined or it has to be an instance of Promise');
+    }
     this._operand = operand;
     this._promise = promise || operand;
   }; // constructor

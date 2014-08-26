@@ -13,7 +13,7 @@ describe('Benchmark,', function () {
     methods: [ 'method5', 'method6', 'method7', 'method8' ]
   });
 
-  var api1 = new Promesify1(Promise.resolve(new stubs.SomeAsyncAPI));
+  var api1 = new Promesify1(new stubs.SomeAsyncAPI);
   var api2 = new Promesify2(Promise.resolve(new stubs.AnotherAsyncAPI));
 
   it('should be able to use sleep', function () {
